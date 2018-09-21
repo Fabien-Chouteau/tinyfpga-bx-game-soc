@@ -40,31 +40,31 @@
 # Left side of board
 set_io --warn-no-port AUDIO_LEFT  A2    # pin 1
 set_io --warn-no-port AUDIO_RIGHT A1    # pin 2
-#set_io --warn-no-port PIN_3 B1
-#set_io --warn-no-port PIN_4 C2
-#set_io --warn-no-port PIN_5 C1
-#set_io --warn-no-port PIN_6 D2
-#set_io --warn-no-port PIN_7 D1
-#set_io --warn-no-port PIN_8 E2
-set_io --warn-no-port VGA_B E1      # pin 9
-set_io --warn-no-port VGA_G G2      # pin 10
-set_io --warn-no-port VGA_R H1      # pin 11
-set_io --warn-no-port VGA_HSYNC J1  # pin 12
-set_io --warn-no-port VGA_VSYNC H2  # pin 13
+set_io --warn-no-port SER_RX B1      # pin 3
+set_io --warn-no-port SER_TX C2      # pin 4
+#set_io --warn-no-port PIN_5 C1      # pin 5
+#set_io --warn-no-port PIN_6 D2      # pin 6
+#set_io --warn-no-port PIN_7 D1      # pin 7
+#set_io --warn-no-port PIN_8 E2      # pin 8
+#set_io --warn-no-port VGA_B E1      # pin 9
+#set_io --warn-no-port VGA_G G2      # pin 10
+set_io --warn-no-port lcd_backlight  H1 # pin 11
+set_io --warn-no-port lcd_read_edge  J1 # pin 12
+set_io --warn-no-port lcd_write_edge H2 # pin 13
 
 
 # Right side of board
-#set_io --warn-no-port PIN_14 H9
-set_io --warn-no-port SER_RX D9
-set_io --warn-no-port SER_TX D8
-#set_io --warn-no-port PIN_17 C9
-#set_io --warn-no-port PIN_18 A9
-#set_io --warn-no-port PIN_19 B8
-#set_io --warn-no-port PIN_20 A8
-#set_io --warn-no-port PIN_21 B7
-#set_io --warn-no-port PIN_22 A7
-#set_io --warn-no-port PIN_23 B6
-#set_io --warn-no-port PIN_24 A6
+set_io --warn-no-port lcd_cmd_data H9 # pin 14
+set_io --warn-no-port lcd_ncs      D9 # pin 15
+set_io --warn-no-port lcd_nreset   D8 # pin 16
+set_io --warn-no-port lcd_D0       C9 # pin 17
+set_io --warn-no-port lcd_D1       A9 # pin 18
+set_io --warn-no-port lcd_D2       B8 # pin 19
+set_io --warn-no-port lcd_D3       A8 # pin 20
+set_io --warn-no-port lcd_D4       B7 # pin 21
+set_io --warn-no-port lcd_D5       A7 # pin 22
+set_io --warn-no-port lcd_D6       B6 # pin 23
+set_io --warn-no-port lcd_D7       A6 # pin 24
 
 
 # SPI flash interface on bottom of board

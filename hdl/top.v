@@ -29,9 +29,9 @@
 
  // look in pins.pcf for all the pin names on the TinyFPGA BX board
 module top (
-	input CLK,      // 16MHz clock
-	output USBPU,  // USB pull-up resistor
-	output LED,    // on-board LED
+	input  CLK, // 16MHz clock
+	output USBPU, // USB pull-up resistor
+	output LED, // on-board LED
 
 	// Audio PDM output - PIN 1 = left, PIN 2 = right
 	output AUDIO_LEFT,
@@ -39,21 +39,30 @@ module top (
 
 	/* UART output (pin 11 = RX, pin 13 = TX) */
 	output SER_TX,
-	input SER_RX,
+	input  SER_RX,
 
 	/* SPI flash */
 	output SPI_SS,
 	output SPI_SCK,
-	inout SPI_IO0,
-	inout SPI_IO1,
-	inout SPI_IO2,
-	inout SPI_IO3,
+	inout  SPI_IO0,
+	inout  SPI_IO1,
+	inout  SPI_IO2,
+	inout  SPI_IO3,
 
-	output VGA_VSYNC,
-	output VGA_HSYNC,
-	output VGA_R,
-	output VGA_G,
-	output VGA_B);
+        output lcd_D0,
+	output lcd_D1,
+	output lcd_D2,
+	output lcd_D3,
+	output lcd_D4,
+	output lcd_D5,
+	output lcd_D6,
+	output lcd_D7,
+	output lcd_nreset,
+        output lcd_cmd_data,
+        output lcd_ncs,
+        output lcd_backlight,
+        output lcd_read_edge,
+        output lcd_write_edge);
 
 	// drive USB pull-up resistor to '0' to disable USB
 	assign USBPU = 0;
@@ -141,11 +150,14 @@ module top (
 		.iomem_wstrb(iomem_wstrb),
 		.iomem_addr(iomem_addr),
 		.iomem_wdata(iomem_wdata),
-		.vga_hsync(VGA_HSYNC),
-		.vga_vsync(VGA_VSYNC),
-		.vga_r(VGA_R),
-		.vga_g(VGA_G),
-		.vga_b(VGA_B)
+                .nreset(lcd_nreset),
+                .cmd_data(lcd_cmd_data),
+		.ncs(lcd_ncs),
+		.write_edge(lcd_write_edge),
+		.read_edge(lcd_read_edge),
+		.backlight(lcd_backlight),
+		.dout({lcd_D0, lcd_D1, lcd_D2, lcd_D3,
+		       lcd_D4, lcd_D5, lcd_D6, lcd_D7})
 	);
 
 
